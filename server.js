@@ -35,11 +35,12 @@ app.get('/', (req, res) => {
 // GET request handler for '/year/*'
 app.get('/year/:selected_year', (req, res) => {
     console.log(req.params.selected_year);
-    fs.readFile(path.join(template_dir, 'year.html'), (err, template) => {
+    // fs.readFile(path.join(template_dir, 'year.html'), (err, template) => {
+    fs.readFile(path.join(template_dir, 'index.html'), (err, template) => {
         // modify `template` and send response
         // this will require a query to the SQL database
 
-        res.status(200).type('html').send(template); // <-- you may need to change this
+        res.send(template, { year:2020, coal_count: req.params.selected_year}); // <-- you may need to change this
     });
 });
 
@@ -49,6 +50,7 @@ app.get('/state/:selected_state', (req, res) => {
     fs.readFile(path.join(template_dir, 'state.html'), (err, template) => {
         // modify `template` and send response
         // this will require a query to the SQL database
+        const page = '<h1>Megan</h1>'
 
         res.status(200).type('html').send(template); // <-- you may need to change this
     });

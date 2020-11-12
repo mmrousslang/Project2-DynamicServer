@@ -3,23 +3,23 @@
     "version": "0.0.0",
     "description": "Dynamic Web Server using Node JS",
     "author": {
-        "name": "",
-        "email": ""
+        "name": "Megan Rousslang",
+        "email": "rous8197@stthomas.edu"
     },
     "contributors": [
         {
-            "name": "",
-            "email": ""
+            "name": "Hannah Balut",
+            "email": "balu2673@stthomas.edu"
         },
         {
-            "name": "",
-            "email": ""
+            "name": "Zachary Bakken",
+            "email": "bakk4617@stthomas.edu"
         }
     ],
     "main": "server.js",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/mmrousslang/Project2-DynamicServer"
     },
     "dependencies": {
         "express": "^4.17.1",
