@@ -4,10 +4,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>US Energy Consumption</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-pie.min.js"></script>
+    <script type="application/javascript" src="/scripts/viewselect.js"></script>
+    <script type="application/javascript" src="/scripts/yearvis.js"></script>
     <script type="application/javascript">
-        // `year` and total counts for entire US => set these variables equal to appropriate value
-        //   * these variables will be defined and accessible from any script loaded after this one
         var year;
         var coal_count;
         var natural_gas_count;
@@ -16,7 +18,42 @@
         var renewable_count;
     </script>
 </head>
-<body>
-    <!-- create template here -->
+<body onload="Init()">
+    <div id="view_select">
+        <h2>Database Search</h2>
+        <div class="spacer1"></div>
+        <label for="view_type">View by: </label>
+        <select id="view_type" onchange="SearchTypeChanged()">
+            <option value="year">Year</option>
+            <option value="state">State</option>
+            <option value="energy">Energy Type</option>
+        </select>
+        <label for="view_value">Select value: </label>
+        <select id="view_value">
+        </select>
+        <button type="button" onclick="SubmitView()">View</button>
+    </div>
+
+    <div class = "header">
+        <h1>!YEAR!</h1>
+        <p>!PREV!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!NEXT!</p>
+    </div>
+
+    <div id="snapshot"></div>
+
+    <div class = "scroll">
+        <table class = "tables">
+            <tr>        
+                <th>State</th>
+                <th>Coal</th>
+                <th>Natural Gas</th>
+                <th>Nuclear</th>
+                <th>Petroleum</th>
+                <th>Renewable</th>
+                <th>Total</th>
+            </tr>
+            !YEARTABLE!
+        </table>
+    </div>
 </body>
 </html>

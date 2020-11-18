@@ -22,7 +22,9 @@
         "url": "https://github.com/mmrousslang/Project2-DynamicServer"
     },
     "dependencies": {
+        "chart.js": "^2.9.4",
         "express": "^4.17.1",
+        "node": "^15.2.1",
         "sqlite3": "^5.0.0"
     }
 }

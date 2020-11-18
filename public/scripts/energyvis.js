@@ -2,7 +2,7 @@ anychart.onDocumentReady(() => {
     var i, j, key;
     var energy_data = {};
 
-    for (i = 0; i < window.states. length; i++) {
+    for (i = 0; i < window.states.length; i++) {
         energy_data[window.states[i]] = [];
         for (j = 0; j <= (2017 - 1960); j++) {
             if (window.energy_counts && Array.isArray(window.energy_counts[window.states[i]]) && window.energy_counts[window.states[i]].length > j) {

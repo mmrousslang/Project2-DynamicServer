@@ -4,15 +4,105 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>US Energy Consumption</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <script type="application/javascript" src="/scripts/viewselect.js"></script>
+    <script type="application/javascript" src="/scripts/energyvis.js"></script>
     <script type="application/javascript">
-        // `energy_type` and object of consumption per year per state => set these variables equal to appropriate value
-        //   * these variables will be defined and accessible from any script loaded after this one
+        var states = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME",
+        "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", 
+        "VA", "VT", "WA", "WI", "WV", "WY"];
         var energy_type;
-        var energy_counts;  // e.g. {AK: [...], AL: [...], AR: [...], ...}
+        var energy_counts;  
     </script>
 </head>
-<body>
-    <!-- create template here -->
+<body onload="Init()">
+    <div id="view_select">
+        <h2>Database Search</h2>
+        <div class="spacer1"></div>
+        <label for="view_type">View by: </label>
+        <select id="view_type" onchange="SearchTypeChanged()">
+            <option value="year">Year</option>
+            <option value="state">State</option>
+            <option value="energy">Energy Type</option>
+        </select>
+        <label for="view_value">Select value: </label>
+        <select id="view_value">
+        </select>
+        <button type="button" onclick="SubmitView()">View</button>
+    </div>
+
+    <div class = "header">
+        <h1>__Energytype__</h1>
+        <p>__PREVIOUS__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__NEXT__</p>
+    </div>
+
+    __ENERGYIMG__
+    <div id="snapshot"></div>
+
+    <div class = scroll>
+        <table class = "tables">
+            <tr>
+                <th>Year</th>
+                <th>AK</th>
+                <th>AL</th>
+                <th>AR</th>
+                <th>AZ</th>
+                <th>CA</th>
+                <th>CO</th>
+                <th>CT</th>
+                <th>DC</th>
+                <th>DE</th>
+                <th>FL</th>
+                <th>GA</th>
+                <th>HI</th>
+                <th>IA</th>
+                <th>ID</th>
+                <th>IL</th>
+                <th>IN</th>
+                <th>KS</th>
+                <th>KY</th>
+                <th>LA</th>
+                <th>MA</th>
+                <th>MD</th>
+                <th>ME</th>
+                <th>MI</th>
+                <th>MN</th>
+                <th>MO</th>
+                <th>MS</th>
+                <th>MT</th>
+                <th>NC</th>
+                <th>ND</th>
+                <th>NE</th>
+                <th>NH</th>
+                <th>NJ</th>
+                <th>NM</th>
+                <th>NV</th>
+                <th>NY</th>
+                <th>OH</th>
+                <th>OK</th>
+                <th>OR</th>
+                <th>PA</th>
+                <th>RI</th>
+                <th>SC</th>
+                <th>SD</th>
+                <th>TN</th>
+                <th>TX</th>
+                <th>UT</th>
+                <th>VA</th>
+                <th>VT</th>
+                <th>WA</th>
+                <th>WI</th>
+                <th>WV</th>
+                <th>WY</th>
+                <th>Total</th>
+            </tr>
+            __DATA__
+        </table>
+
+    </div>
+    
 </body>
 </html>
